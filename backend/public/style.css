@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Quicksand', sans-serif;
+    color: #384047;
+  }
+  
+  form {
+    max-width: 300px;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background: #f4f7f8;
+    border-radius: 8px;
+  }
+  
+  h1 {
+    margin: 0 0 30px 0;
+    text-align: center;
+  }
+  
+  input[type="text"],
+  input[type="password"],
+  input[type="date"],
+  input[type="datetime"],
+  input[type="email"],
+  input[type="number"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="time"],
+  input[type="url"],
+  textarea,
+  select {
+    background: rgba(255,255,255,0.1);
+    border: none;
+    font-size: 16px;
+    height: auto;
+    margin: 0;
+    outline: 0;
+    padding: 15px;
+    width: 100%;
+    background-color: #e8eeef;
+    color: #8a97a0;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    margin-bottom: 20px;
+  }
+  
+  button {
+    padding: 19px 39px 18px 39px;
+    color: #FFF;
+    cursor: pointer;
+    background-color: #4bc970;
+    font-size: 18px;
+    text-align: center;
+    font-style: normal;
+    border-radius: 5px;
+    width: 100%;
+    border: 1px solid #3ac162;
+    border-width: 1px 1px 3px;
+    box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+    margin-bottom: 10px;
+  }
+  .products{
+    
+    display: flex;
+    justify-content: center;
+  }
+  
+  .product_btn{
+    cursor: pointer;
+    width: 200px;
+  }
+  fieldset {
+    margin-bottom: 30px;
+    border: none;
+  }
+  
+  legend {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  label.light {
+    font-weight: 300;
+    display: inline;
+  }
+  
+  .number {
+    background-color: #5fcf80;
+    color: #fff;
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    font-size: 0.8em;
+    margin-right: 4px;
+    line-height: 30px;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+    border-radius: 100%;
+  }
+  
+  @media screen and (min-width: 480px) {
+  
+    form {
+      max-width: 480px;
+    }
+  
+  }
+
+
+  nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 20px;
+  }
+  nav h1{
+    margin: 20px 5px;
+  }
+  @media screen and (max-width:500px) {
+    nav h1{
+      font-size: 20px;
+      margin: 10px 0;
+    }
+  }
+  nav ul{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  nav li{
+    list-style-type: none;
+    margin-left: 0px;
+  }
+  a{
+    text-decoration: none;
+    color: #384047;
+  }
+  nav li a{
+    font-family: 'Quicksand', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.8em;
+    display: block;
+    padding: 10px 16px;
+    letter-spacing: 2px;
+  }
+  .btn{
+    border-radius: 36px;
+    background: #4bc970;
+  }
+  header{
+    display: flex;
+    align-items: center;
+  }
+  header i{
+    font-size: 100px;
+    margin-right: 20px;
+  }
+  header h2{
+    font-size: 3em;
+    margin-bottom: 5px;
+  }
+  header h3{
+    font-size: 1.6em;
+    margin-bottom: 10px;
+    margin-left: 2px;
+    line-height: 3px;
+    color: #999;
+  }
+  header .btn{
+    margin-top: 20px;
+    padding: 12px 18px;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 0.8em;
+  }
+  .recipes{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 30px;
+    row-gap: 80px;
+    margin: 80PX AUTO;
+    max-width: 1200px;
+  }
+  .recipe{
+    display: inline-block;
+    border-radius: 20px;
+    background: white;
+    position: relative;
+    text-align: center;
+    padding: 0 20px 30px 20px
+  }
+  .recipe img{
+    width: 100px;
+    margin: -30px auto 20px;
+  }
