@@ -14,7 +14,7 @@
             <div class="container mx-auto px-4">
               <div class="flex items-center justify-between py-4">
                 <div class="flex items-center">
-                  <img src="../assets/images/deeStories.jpg" class="w-20 h-20" alt="">
+                  <img src="/assets/images/deeStories.jpg" class="w-20 h-20" alt="">
                   <h1 class="font-medium text-sm"><a href="/">Dee Stories Api</a></h1>
                   </div>
           
@@ -64,7 +64,8 @@
 
         <div class="flex flex-wrap justify-center items-center mt-6">
             <h3 class="text-[40px] mb-4 w-[65%]">Add Story</h3>
-            <form action="/stories" method="POST" class="w-[80%]" id="storyForm">
+            <form  method="POST" class="w-[80%]" id="storyForm">
+                <input type="hidden" name="_method" value="PUT">
                 <div class="relative mb-6">
                     <label for="title" class="text-[20px]">Title:</label>
                     <input
@@ -72,7 +73,6 @@
                         id="title"
                         name="title"
                         class="w-full border-b border-gray-300 focus:border-green-500 focus:outline-none placeholder-transparent"
-                        placeholder=" "
                     />
                 </div>
     
@@ -97,12 +97,9 @@
         </div>
     <script src="https://cdn.ckeditor.com/ckeditor5/41.3.1/classic/ckeditor.js"></script>
     
-    <script>
-        ClassicEditor.create(document.querySelector("#body")).catch((error) => {
-            console.error(error);
-        });
-        </script>
-        <script src="../functions/user.js"></script>
-        <script src="../functions/addUser.js"></script>
+    
+        <script src="/functions/user.js"></script>
+        <script src="/functions/addUser.js"></script>
+        <script src="/functions/editStory.js"></script>
   </body>
 </html>

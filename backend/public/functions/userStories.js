@@ -1,8 +1,16 @@
+function getQueryParam(name) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(name);
+}
+
+// Get the story ID from the URL
+const userId = getQueryParam('userId');
+
 fetchStoryData();
 
 async function fetchStoryData() {
   try {
-    const response = await fetch("/stories");
+    const response = await fetch(`/stories/user/${userId}`);
     const data = await response.json();
     const stories = data;
 
@@ -50,6 +58,7 @@ async function fetchStoryData() {
         userLink.href = `/userStories.html?userId=${story.user._id}`;
         userLink.textContent = story.user.displayName;
         userLink.className = "font-bold";
+
 
         const readMore = document.createElement("div");
         readMore.className =

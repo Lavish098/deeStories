@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add story</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Stories</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
 
-  </head>
-  <body>
+</head>
+<body>
     <nav>
         <div class="bg-gray-100 font-sans w-full m-0">
           <div class="bg-white shadow">
             <div class="container mx-auto px-4">
               <div class="flex items-center justify-between py-4">
                 <div class="flex items-center">
-                  <img src="../assets/images/deeStories.jpg" class="w-20 h-20" alt="">
+                  <img src="./assets/images/deeStories.jpg" class="w-20 h-20" alt="">
                   <h1 class="font-medium text-sm"><a href="/">Dee Stories Api</a></h1>
                   </div>
           
                   <div class="hidden sm:flex sm:items-center">
-                    <a href="#" class="text-gray-800 text-sm font-semibold hover:text-purple-600 mr-4">Products</a>
+                    <a href="./public.html" class="text-gray-800 text-sm font-semibold hover:text-purple-600 mr-4">Public</a>
                     <a href="#" class="text-gray-800 text-sm font-semibold hover:text-purple-600 mr-4">Marketplace</a>
                     <a href="#" class="text-gray-800 text-sm font-semibold hover:text-purple-600 mr-4">Partners</a>
                   </div>
@@ -58,51 +59,11 @@
               <li><a href="/auth/logout" class="btn user-out">Log Out</a></li>
           </ul> -->
         </nav>
-
-
-
-
-        <div class="flex flex-wrap justify-center items-center mt-6">
-            <h3 class="text-[40px] mb-4 w-[65%]">Add Story</h3>
-            <form action="/stories" method="POST" class="w-[80%]" id="storyForm">
-                <div class="relative mb-6">
-                    <label for="title" class="text-[20px]">Title:</label>
-                    <input
-                        type="text"
-                        id="title"
-                        name="title"
-                        class="w-full border-b border-gray-300 focus:border-green-500 focus:outline-none placeholder-transparent"
-                        placeholder=" "
-                    />
-                </div>
-    
-                <div class="relative mb-6">
-                    <label for="status" class="text-[20px]">Status:</label>
-                    <select id="status" name="status" class="mt-5 w-full border-b border-gray-300 focus:border-green-500 focus:outline-none ">
-                        <option value="public" selected>Public</option>
-                        <option value="private">Private</option>
-                    </select>
-                </div>
-    
-                <div class="mb-6">
-                    <label for="body" class="block text-[20px] mb-2">Tell Us Your Story:</label>
-                    <textarea id="body" name="body" class="w-full border border-gray-300 focus:border-green-500 focus:outline-none rounded-lg"></textarea>
-                </div>
-    
-                <div class="flex">
-                    <input type="submit" value="Save" class="bg-green-300 text-white px-4 py-2 mr-5" />
-                    <a href="/dashboard" class="bg-orange-300 text-white px-4 py-2 mr-5">Cancel</a>
-                </div>
-            </form>
-        </div>
-    <script src="https://cdn.ckeditor.com/ckeditor5/41.3.1/classic/ckeditor.js"></script>
-    
-    <script>
-        ClassicEditor.create(document.querySelector("#body")).catch((error) => {
-            console.error(error);
-        });
-        </script>
-        <script src="../functions/user.js"></script>
-        <script src="../functions/addUser.js"></script>
-  </body>
+        <div id="public" class="flex flex-wrap justify-center items-center mt-5">
+          
+          
+      </div>
+      <script src="./functions/user.js"></script>
+      <script src="../functions/userStories.js"></script>
+</body>
 </html>
