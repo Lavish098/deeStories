@@ -56,11 +56,6 @@ app.use('/stories', require('./routes/stories'))
 
 const PORT = process.env.PORT || 4000;
 
-
-// app.get('/login', (req, res) => {
-//     res.sendFile('login.html', {root: path.join(__dirname, 'public')});
-//   });
-
 app.listen(
   PORT,
   console.log(`server running in ${process.env.NODE_ENV} mode on ${PORT}`)
