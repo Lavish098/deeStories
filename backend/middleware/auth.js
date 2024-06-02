@@ -14,4 +14,13 @@ const ensureGuest = (req, res, next) => {
     }
 }
 
-module.exports = {ensureAuth, ensureGuest}
+function ensureSecure(req, res, next){
+    if(req.headers["x-forwarded-proto"] === "https"){
+        // OK, continue
+        return next();
+    };
+    // Redirect to HTTPS
+    res.redirect('https://' + req.hostname + req.url);
+};
+
+module.exports = {ensureAuth, ensureGuest, ensureSecure}
