@@ -7,7 +7,6 @@ const methodOverride = require('method-override')
 const passport = require("passport")
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
-const { ensureSecure } = require("./middleware/auth");
 
 dotenv.config({ path: "./config/config.env" });
 
@@ -33,7 +32,6 @@ app.use(passport.initialize())
 app.use(passport.session())
 app.use(express.urlencoded({extended: false}))
 app.use(express.json())
-app.use(ensureSecure);
 
 
 app.use(methodOverride(function (req, res) {
