@@ -1,7 +1,22 @@
-const userIn = document.querySelector('.user')
-const logOut = document.querySelector('.user-out')
-const logIn = document.querySelector('.user-in')
+const userIn = document.querySelectorAll('.user')
+const logOut = document.querySelectorAll('.user-out')
+const logIn = document.querySelectorAll('.user-in')
 
+const hamburger = document.querySelector('.hamburger-menu');
+        const navMenu = document.querySelector('.nav-menu');
+        const closeMenu = document.getElementById('close-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.remove('hidden');
+            navMenu.classList.add('block');
+            navMenu.style.zIndex = '9999'; // Ensure high z-index value
+            
+        });
+
+        closeMenu.addEventListener('click', () => {
+            navMenu.classList.remove('block');
+            navMenu.classList.add('hidden');
+        });
 
 
     fetchUserData();
@@ -14,10 +29,15 @@ const logIn = document.querySelector('.user-in')
 
             if (user) {
                 displayUserInfo(user);
-                logIn.className = 'hidden'
+                
+                logIn.forEach(logIn => {
+                    logIn.className = 'hidden'
+                })
             } else {
                 console.log(data.error); // Display error message if any
-                logOut.className = 'hidden'
+                logOut.forEach(logOut => {
+                    logOut.className = 'hidden'
+                })
             }
         } catch (error) {
             console.error('Error fetching user:', error);
@@ -26,8 +46,10 @@ const logIn = document.querySelector('.user-in')
 
     function displayUserInfo(user) {
 		console.log(user);
-        userIn.textContent = `
-            Welcome ${user.displayName}
-        `;
+        userIn.forEach(userIn => {
+            userIn.textContent = `
+                Welcome ${user.displayName}
+            `;
+        })
     }
 

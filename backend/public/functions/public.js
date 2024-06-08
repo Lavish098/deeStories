@@ -20,7 +20,7 @@ async function fetchStoryData() {
         console.log(story);
         const card = document.createElement("card");
         card.className =
-          "max-w-sm p-6 mr-5 relative flex flex-wrap justify-center item-center bg-white border border-gray-200 shadow dark:bg-gray-800 dark:border-gray-700";
+          "max-w-sm p-6 mr-5 mt-6 relative flex flex-wrap justify-center item-center bg-white border border-gray-200 shadow dark:bg-gray-800 dark:border-gray-700";
 
         const title = document.createElement("h5");
         title.className =
