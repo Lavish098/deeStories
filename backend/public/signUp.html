@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
+    <title>Sign Up</title>
     <!-- <link rel="stylesheet" href="./auth.css">
     <link rel="stylesheet" href="./style.css"> -->
     <link
@@ -17,11 +17,11 @@
       class="min-h-screen flex items-center justify-center w-full dark:bg-gray-950"
     >
       <div
-        class="bg-white dark:bg-gray-900 shadow-md rounded-lg px-8 py-6 max-w-md"
+        class="bg-white dark:bg-gray-900 shadow-md rounded-lg px-8 py-6 max-w-md w-[40%]"
       >
       <!-- <i class="fa-solid fa-book-open-reader text-center text-[70px]"></i> -->
       <h1 class="text-2xl font-bold text-center mb-4 dark:text-gray-200">
-          Welcome Back!
+          Create an account
         </h1>
         <a
         href="/auth/google"
@@ -35,7 +35,35 @@
           <p class="mx-4 text-grey-600">or</p>
           <hr class="h-0 border-b border-solid border-grey-500 grow" />
         </div>
-        <form action="/auth/login" method="POST">
+        <form action="/auth/signup" method="POST">
+          <div class="mb-4">
+            <label
+              for="firstname"
+              class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+              >FirstName</label
+            >
+            <input
+              type="text"
+              name="firstName"
+              class="shadow-sm rounded-md w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+              placeholder="Firstname"
+              required
+            />
+          </div>
+          <div class="mb-4">
+            <label
+              for="lastname"
+              class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+              >LastName</label
+            >
+            <input
+              type="text"
+              name="lastName"
+              class="shadow-sm rounded-md w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+              placeholder="LastName"
+              required
+            />
+          </div>
           <div class="mb-4">
             <label
               for="email"
@@ -63,11 +91,7 @@
               placeholder="Enter your password"
               required
             />
-            <a
-              href="#"
-              class="text-xs text-gray-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-              >Forgot Password?</a
-            >
+            
           </div>
           <div class="flex items-center justify-between mb-4">
             <div class="flex items-center">
@@ -79,21 +103,24 @@
               /> -->
               <!-- <label for="remember" class="ml-2 block text-sm text-gray-700 dark:text-gray-300">Remember me</label> -->
             </div>
-            <a
-              href="./signUp.html"
-              class="text-xs text-indigo-500 hover:text-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-              >Create Account</a
-            >
+            <h2>
+              Already have an account!
+              <a
+              href="./login.html"
+              class="text-sm text-indigo-500 hover:text-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              >Sign In</a
+              >
+            </h2>
           </div>
           <button
             type="submit"
             class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
-            Login
+            Create Account
           </button>
         </form>
       </div>
     </div>
-    <script src="./functions/auth.js"></script>
+    <script src="./auth.js"></script>
   </body>
 </html>

@@ -4,13 +4,12 @@ const mongoose = require('mongoose')
 const path = require('path')
 const connectDB = require("./config/db");
 const methodOverride = require('method-override')
-const passport = require("passport")
+const passport = require('./config/password')
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 
 dotenv.config({ path: "./config/config.env" });
 
-require('./config/password')(passport)
 
 connectDB();
 
