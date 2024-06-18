@@ -31,7 +31,10 @@ dotenv.config({ path: "./config/config.env" });
             });
           return done(null, user);
         } catch (err) {
-          console.log(err);
+          if(err.message == 'data and hash arguments required'){
+            return done(null, false, { message: 'This account is registered with Goolge' })
+          }
+          return done(null, false, { message: err.message });
         }
       }
     )

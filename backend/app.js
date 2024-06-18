@@ -6,6 +6,7 @@ const connectDB = require("./config/db");
 const methodOverride = require('method-override')
 const passport = require('./config/password')
 const session = require('express-session');
+const flash = require('connect-flash');
 const MongoStore = require('connect-mongo');
 
 dotenv.config({ path: "./config/config.env" });
@@ -21,14 +22,18 @@ app.use(express.static(path.join(__dirname, "public")))
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
-  saveUninitialized: false,
+  saveUninitialized: true,
   store: MongoStore.create({ mongoUrl: process.env.MONGO_URI})
 }))
+
+app.use(flash());
 
 
 //passport middleware
 app.use(passport.initialize())
 app.use(passport.session())
+
+
 app.use(express.urlencoded({extended: false}))
 app.use(express.json())
 
@@ -49,7 +54,16 @@ app.use('/', require('./routes/index'))
 app.use('/auth', require('./routes/auth'))
 app.use('/stories', require('./routes/stories'))
 
-
+app.get('/flash', (req, res) => {
+  const flashMessages = {
+    success: req.flash('success_msg'),
+    error: req.flash('error_msg'),
+    authError: req.flash('error'), 
+    // Add more types as needed
+  }
+  console.log(flashMessages);
+  res.json(flashMessages);
+});
 
 
 

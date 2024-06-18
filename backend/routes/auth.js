@@ -14,13 +14,12 @@ router.get('/google/callback', passport.authenticate('google', {failureRedirect:
 })
 
 router.post('/signup', async (req, res) => {
-    console.log(req.body);
     const { lastName, firstName, email, password } = req.body;
-    console.log(lastName, firstName, email, password);
   try {
     let user = await User.findOne({email})
     if(user){
-        return res.status(400).json({ error: 'User already exists' });
+      req.flash('error_msg', 'User already exists');
+      return res.redirect('/');
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -35,12 +34,12 @@ router.post('/signup', async (req, res) => {
   });
 
   } catch (err) {
-    res.status(400).json(err);
+    req.flash('error_msg', 'Something went wrong. Please try again');
   }
 })
 
 router.post('/login', 
-  passport.authenticate('local', { failureRedirect: '/' }),
+  passport.authenticate('local', { failureRedirect: '/',  failureFlash: true }),
   (req, res) => {
     res.redirect('/dashboard');
   });
