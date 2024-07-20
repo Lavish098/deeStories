@@ -20,7 +20,13 @@ async function fetchStoryData() {
         console.log(story);
         const card = document.createElement("card");
         card.className =
-          "max-w-sm p-6 mr-5 mt-6 relative flex flex-wrap justify-center item-center bg-white border border-gray-200 shadow dark:bg-gray-800 dark:border-gray-700";
+          "max-w-[20em] p-6 mr-5 mt-6 relative flex flex-wrap justify-center item-center bg-white shadow";
+
+          const img = document.createElement("img");
+        img.src = `data:image/jpeg;base64,${story.image}`; 
+        img.className = "w-40 h-42 mr-2 ";
+        img.alt = story.title;
+
 
         const title = document.createElement("h5");
         title.className =
@@ -33,13 +39,14 @@ async function fetchStoryData() {
           story.body
             .replace(/<\/?p>/g, "")
             .replace(/<\/?strong>/g, "")
+            .replace(/<\/?h2>/g, "")
             .replace(/&nbsp;/g, "")
             .substring(0, 70) + "..."; // Remove HTML tags and &nbsp;
 
+        
         const userImage = document.createElement("div");
         userImage.className =
-          "flex items-center bg-gray-300 w-[60%] mt-5 rounded rounded-[20px]";
-
+          "flex items-center bg-gray-300 w-[80%] mt-5 rounded rounded-[20px]";
 
         const imgElement = document.createElement("img");
         imgElement.src = story.user.image; // Set the src attribute to the image file path
@@ -50,7 +57,7 @@ async function fetchStoryData() {
         userLink.href = `/userStories.html?userId=${story.user._id}`;
         userLink.textContent = story.user.displayName;
         userLink.className = "font-bold";
-
+        
         const readMore = document.createElement("div");
         readMore.className =
           "w-full mt-5 flex justify-center item-center border-t-2 border-grey-300";
@@ -78,6 +85,7 @@ async function fetchStoryData() {
         userImage.appendChild(imgElement);
         userImage.appendChild(userLink);
 
+        card.appendChild(img)
         card.appendChild(title);
         card.appendChild(body);
         card.appendChild(userImage);

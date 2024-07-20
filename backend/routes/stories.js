@@ -4,6 +4,15 @@ const path = require('path')
 const { ensureAuth } = require('../middleware/auth');
 const { getUser } = require("../controller/userController");
 const mongoose  = require('mongoose');
+const multer = require('multer');
+
+
+// Set up multer storage
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
+
+// Middleware to handle image uploads
+const uploadMiddleware = upload.single('image');
 
 
 const Story = require('../models/Story');
@@ -12,11 +21,24 @@ const Story = require('../models/Story');
 router.get('/add', ensureAuth, (req, res) => {
     res.sendFile('add.html', {root: path.join(__dirname, '../public')});
 })
-router.post('/', ensureAuth, async (req, res) => {
+router.post('/', ensureAuth, uploadMiddleware, async (req, res) => {
     try {
-        console.log(req.user);
+        
+        console.log(req.body);
         req.body.user = req.user
-        await Story.create(req.body)
+          // If an image is uploaded, convert it to base64
+          let imageBase64 = '';
+          if (req.file) {
+              imageBase64 = req.file.buffer.toString('base64');
+          }
+          console.log(imageBase64);
+          const genres = req.body.genre.toString();
+          const storyData = {
+            ...req.body,
+            genre: genres,
+            image: imageBase64 // Store the image as a base64 string
+        };
+        await Story.create(storyData)
         res.redirect('/dashboard')
     } catch (err) {
         console.log(err);
